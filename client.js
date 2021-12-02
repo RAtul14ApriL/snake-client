@@ -1,9 +1,4 @@
 const net = require('net');
-// const readline = require('readline');
-
-// const rl = readline.createInterface({
-//   input: process.stdin
-// });
 
 const connect = function () {
   const conn = net.createConnection({
@@ -17,11 +12,7 @@ const connect = function () {
     console.log('King Cobra', connect);
     conn.write("Name: RAT");
   })
-  // conn.on('connect', (connect) => {
-  //   conn.write("Move: up");
-  // })
-
   return conn;
 }
 
-module.exports = { connect }
+module.exports = connect;
