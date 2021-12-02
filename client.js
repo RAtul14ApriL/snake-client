@@ -1,16 +1,17 @@
 const net = require('net');
+const { IP, PORT, playerName, connectMessage } = require('./constants');
 
 const connect = function () {
   const conn = net.createConnection({
-    host: "165.227.47.243",
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
   conn.setEncoding("utf8");
 
   conn.on('connect', (connect) => {
-    console.log('King Cobra', connect);
-    conn.write("Name: RAT");
+    console.log(connectMessage, connect);
+    conn.write(`Name: ${playerName}`);
   })
   return conn;
 }

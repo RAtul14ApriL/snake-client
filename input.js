@@ -1,6 +1,7 @@
+const { moveKeys, inGameMsg } = require('./constants');
 let connection;
 
-const setupInput = function(conn) {
+const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -10,30 +11,36 @@ const setupInput = function(conn) {
   return stdin;
 };
 
-const handleUserInput = function(key) {
+const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }
-  if (key === 'w'){
+  if (key === moveKeys.up) {
     connection.write("Move: up");
-  }  
-  if (key === 'a'){
+  }
+  if (key === moveKeys.left) {
     connection.write("Move: left");
   }
-  if (key === 's'){
+  if (key === moveKeys.down) {
     connection.write("Move: down");
   }
-  if (key === 'd'){
+  if (key === moveKeys.right) {
     connection.write("Move: right");
   }
-  if (key === 'h'){
-    connection.write("Say: Ha ha ha");
+  if (key === 'e') {
+    connection.write(`Say: ${inGameMsg.e}`);
   }
-  if (key === 'f'){
-    connection.write("Say: oh no!");
+  if (key === 'f') {
+    connection.write(`Say: ${inGameMsg.f}`);
   }
-  if (key === 'g'){
-    connection.write("Say: King Cobra");
+  if (key === 'g') {
+    connection.write(`Say: ${inGameMsg.g}`);
+  }
+  if (key === 'q') {
+    connection.write(`Say: ${inGameMsg.q}`);
+  }
+  if (key === 'r') {
+    connection.write(`Say: ${inGameMsg.r}`);
   }
 };
 
