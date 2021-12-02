@@ -17,6 +17,9 @@ const connect = function () {
     console.log('King Cobra', connect);
     conn.write("Name: RAT");
   })
+  // conn.on('connect', (connect) => {
+  //   conn.write("Move: up");
+  // })
 
   return conn;
 }
